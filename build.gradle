@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.0'
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+
+}
+
+
+dependencies {
+    implementation 'org.telegram:telegrambots:6.9.7.1'
+    implementation 'org.apache.pdfbox:pdfbox:3.0.2'
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.4'
+    implementation group: 'org.apache.poi', name: 'poi-scratchpad', version: '5.2.4'
+
+    // Apache POI Word
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.4'
+
+    // Optional dependencies for Excel
+    implementation group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '5.1.1'
+
+    // Optional dependencies for PowerPoint
+    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'com.sun.xml.bind:jaxb-core:2.3.0.1'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.3.3'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ['--add-modules', 'ALL-MODULE-PATH']
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

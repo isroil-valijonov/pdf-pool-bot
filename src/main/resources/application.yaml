@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/pdfpoolbot
+    password: 2201
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+pdf-pool-bot:
+  telegram:
+    bot:
+      token: 7124756897:AAFpdPSbLcKSGASBxp6_JEoanemEJwm1nTc
+      username: PDFPOOLBOT
