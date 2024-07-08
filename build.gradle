@@ -19,24 +19,33 @@ configurations {
 
 repositories {
     mavenCentral()
-
+    maven {
+        name = 'AsposeJavaAPI'
+        url = 'https://repository.aspose.com/repo/'
+    }
+    maven {
+        name = 'e-iceblue'
+        url = 'https://repo.e-iceblue.com/nexus/content/groups/public/'
+    }
+}
+configurations.all {
+    exclude group: 'org.slf4j', module: 'slf4j-reload4j'
 }
 
 
 dependencies {
     implementation 'org.telegram:telegrambots:6.9.7.1'
-    implementation 'org.apache.pdfbox:pdfbox:3.0.2'
-    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.4'
-    implementation group: 'org.apache.poi', name: 'poi-scratchpad', version: '5.2.4'
 
-    // Apache POI Word
-    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.4'
+    implementation 'org.slf4j:slf4j-api:2.0.7'
 
-    // Optional dependencies for Excel
-    implementation group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '5.1.1'
+    implementation 'fr.opensagres.xdocreport:fr.opensagres.poi.xwpf.converter.pdf:2.0.2'
+    implementation 'org.apache.poi:poi:4.1.1'
+    implementation 'org.apache.poi:poi-ooxml:4.1.1'
+    implementation 'org.apache.poi:poi-scratchpad:4.1.1'
+    implementation 'com.itextpdf:itextpdf:5.5.13.2'
 
-    // Optional dependencies for PowerPoint
-    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
+    implementation 'org.apache.pdfbox:pdfbox:2.0.27'
+
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'javax.xml.bind:jaxb-api:2.3.1'

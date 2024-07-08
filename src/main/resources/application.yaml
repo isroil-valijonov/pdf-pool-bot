@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/pdfpoolbot
-    password: 2201
-    username: postgres
+    password:
+    username:
   jpa:
     hibernate:
       ddl-auto: update
@@ -13,5 +13,5 @@ spring:
 pdf-pool-bot:
   telegram:
     bot:
-      token: 7124756897:AAFpdPSbLcKSGASBxp6_JEoanemEJwm1nTc
-      username: PDFPOOLBOT
+      token:
+      username:
