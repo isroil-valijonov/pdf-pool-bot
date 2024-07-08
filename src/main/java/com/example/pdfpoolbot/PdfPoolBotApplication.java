@@ -19,6 +19,7 @@ public class PdfPoolBotApplication {
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             PdfPoolBot telegramBot = context.getBean(PdfPoolBot.class);
             botsApi.registerBot(telegramBot);
+
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
